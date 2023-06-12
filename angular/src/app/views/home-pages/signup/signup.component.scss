@@ -1,0 +1,36 @@
+.custom-hobby {
+  background-color: #004D40;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: none;
+  padding: 10px;
+  margin: 5px;
+  min-width: 55px;
+  position: relative;
+}
+
+.fa.fa-remove {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  color: red;
+}
+
+.hobby-button:hover {
+  color: #fff;
+  background-color: #004d40b5;
+  border-color: none;
+}
+
+.hobby-button:focus,
+.hobby-button.focus {
+  box-shadow: none;
+}
+
+.hobby-button:not(:disabled):not(.disabled):active:focus,
+.hobby-button:not(:disabled):not(.disabled).active:focus,
+.show>.hobby-button.dropdown-toggle:focus {
+  box-shadow: none;
+}

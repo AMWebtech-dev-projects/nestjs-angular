@@ -1,0 +1,29 @@
+<div class="d-flex flex-row">
+  <div class="col-12">
+    <h4>Here getting data from socket event.
+      <button type="button" class="btn btn-danger pull-right text-white" (click)="sendDemoEvent()"> Send Event</button>
+    </h4>
+    <hr />
+  </div>
+</div>
+<div class="container-fluid app-user bg-white p-3">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr class="text-nowrap">
+        <th>S.No</th>
+        <th>Username</th>
+        <th>Email I'd</th>
+        <th>Account Type</th>
+      </tr>
+    </thead>
+    <tbody class="text-wrap">
+      <tr class=" border" *ngFor="let user of usersList; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{user.firstName + ' ' +user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role == 'admin' ? 'Admin' : 'User'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <pre [innerHtml]="usersList | json"> </pre> -->

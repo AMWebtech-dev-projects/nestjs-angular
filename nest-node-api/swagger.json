@@ -1,0 +1,670 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Node & Nest APIs_",
+    "description": "User CRUD Project Application Node & Nest API. Please check with new Account",
+    "version": "3.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system."
+    },
+    {
+      "name": "FileUpload",
+      "description": "API for FileUpload in the system."
+    }
+  ],
+  "paths": {
+    "/users/healthCheck": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "API Health OK!",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/getUsersList": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "Get user list from the Api system after login.",
+        "description": "Get user list from the Api system after login but firstly pass authorize token for it  click to authorize button in top.",
+        "responses": {
+          "200": {
+            "description": "Get user list from the Api system after login but firstly pass authorize token for it  click to authorize button in top.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/saveUserInfoWithSkills": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create new user with skills in system",
+        "description": "Create new user with skills in system",
+        "requestBody": {
+          "description": "You should pass here body parameter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "default": "Bharat"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "default": "Sen"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "bharat@amwebtech.com"
+                  },
+                  "dob": {
+                    "type": "string",
+                    "default": "5/05/1990"
+                  },
+                  "phoneNumber": {
+                    "type": "number",
+                    "default": 7878787878
+                  },
+                  "gender": {
+                    "type": "string",
+                    "default": "Married"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Bharat@123"
+                  },
+                  "skills": {
+                    "type": "string",
+                    "default": [
+                      "JavaScript",
+                      "typescript",
+                      "mongodb"
+                    ]
+                  },
+                  "status": {
+                    "type": "boolean",
+                    "default": 1
+                  },
+                  "role": {
+                    "type": "string",
+                    "default": "admin"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/saveUserInfo": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create new user in system",
+        "description": "Create new user in system",
+        "requestBody": {
+          "description": "You should pass here body parameter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "default": "Bharat"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "default": "Sen"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "bharat@amwebtech.com"
+                  },
+                  "dob": {
+                    "type": "string",
+                    "default": "5/05/1990"
+                  },
+                  "phoneNumber": {
+                    "type": "number",
+                    "default": 7878787878
+                  },
+                  "gender": {
+                    "type": "string",
+                    "default": "Married"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Bharat@123"
+                  },
+                  "status": {
+                    "type": "boolean",
+                    "default": 1
+                  },
+                  "role": {
+                    "type": "string",
+                    "default": "admin"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/profilePicture": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create new user in system",
+        "description": "Create new user in system",
+        "requestBody": {
+          "description": "You should pass here body parameter",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "default": "Bharat"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "default": "Sen"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "bharat@amwebtech.com"
+                  },
+                  "dob": {
+                    "type": "string",
+                    "default": "5/05/1990"
+                  },
+                  "phoneNumber": {
+                    "type": "number",
+                    "default": 7878787878
+                  },
+                  "gender": {
+                    "type": "string",
+                    "default": "Married"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Bharat@123"
+                  },
+                  "profileImage": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "status": {
+                    "type": "boolean",
+                    "default": "1"
+                  },
+                  "role": {
+                    "type": "string",
+                    "default": "admin"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/doSignIn": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Signin user in system.",
+        "description": "Signin user in system.",
+        "requestBody": {
+          "description": "You should pass here email and password.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "bharat@amwebtech.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Bharat@123"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "User is logged in here.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/logout": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "summary": "Logout from Api",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/deleteUser": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete User",
+        "description": "Delete User",
+        "requestBody": {
+          "description": "You should pass here user object Id of the user.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string",
+                    "default": "645b6cf84dd06c865debd7ee"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "User delete successfully.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/forgotPassword": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Forgot password in system ",
+        "description": "Forgot password in system. You will get the email notification.",
+        "requestBody": {
+          "description": "You should pass here token , _id, preference list in array.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "bharat@amwebtech.com"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Forgot token is given for the changing password.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/users/emailAlreadyExists": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "emailAlreadyExists in system ",
+        "description": "emailAlreadyExists in system with token and status, _id, password. ",
+        "requestBody": {
+          "description": "emailAlreadyExists",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "bharat@amwebtech.com"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "emailAlreadyExists status.",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/fileupload/uploadImage": {
+      "post": {
+        "tags": [
+          "FileUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "singleFile": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/fileupload/multipleUploadImage": {
+      "post": {
+        "tags": [
+          "FileUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "files": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Users": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "62dfba548a825d001669b56e"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "number"
+          },
+          "password": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "dob": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "profileImage": {
+            "type": "string"
+          },
+          "profileOldImage": {
+            "type": "string"
+          },
+          "forgotLink": {
+            "type": "string"
+          },
+          "forgotStatus": {
+            "type": "number"
+          },
+          "remember": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          },
+          "techStack": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "Users"
+        }
+      },
+      "Products": {
+        "type": "object",
+        "description": "Product model is coming soon...",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "62dfba548a825d001669b56e"
+          }
+        },
+        "xml": {
+          "name": "Users"
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "authorization",
+        "in": "header",
+        "description": "Please add this formate in value : {{Bearer eyJhbGciOiJIUzI1Ni - token - IsInR5cCI6IkpXVCJ9s}}"
+      }
+    }
+  }
+}

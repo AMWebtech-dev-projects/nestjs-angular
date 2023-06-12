@@ -1,0 +1,103 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserGraphqlModel {
+  _id: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+  password: String!
+  gender: String!
+  dob: String!
+  role: String!
+  status: Float!
+  authorization: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  forgotStatus: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getAllUsers: [UserGraphqlModel!]!
+  user(_id: String!): UserGraphqlModel!
+}
+
+type Mutation {
+  saveUserInfo(saveUser: CreateUserGraphqlDto!): UserGraphqlModel!
+  removeUser(_id: String!): UserGraphqlModel!
+  doSignIn(userLogin: LoginUserGraphqlDto!): UserGraphqlModel!
+  logout: UserGraphqlModel!
+}
+
+input CreateUserGraphqlDto {
+  _id: String
+
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """phone number of the user"""
+  phoneNumber: String!
+
+  """password of the user"""
+  password: String!
+
+  """role of the user"""
+  gender: String!
+
+  """address of the user"""
+  dob: String!
+
+  """role of the user"""
+  role: String!
+
+  """status of the user"""
+  status: String!
+
+  """status of the user"""
+  forgotStatus: String
+
+  """status of the user"""
+  updatedAt: String
+
+  """status of the user"""
+  createdAt: String
+}
+
+input LoginUserGraphqlDto {
+  _id: String
+  firstName: String
+  lastName: String
+
+  """email of the user"""
+  email: String!
+  phoneNumber: String
+
+  """password of the user"""
+  password: String!
+  gender: String
+  dob: String
+  role: String
+  status: String
+
+  """status of the user"""
+  forgotStatus: String
+
+  """status of the user"""
+  updatedAt: String
+
+  """status of the user"""
+  createdAt: String
+}

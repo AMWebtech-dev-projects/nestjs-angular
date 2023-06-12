@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "a2a7963d-312f-44d0-88c6-5435c62a00fd",
+		"name": "Nest Node API's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20942640",
+		"_collection_link": "https://rajat-amwebtech.postman.co/workspace/Team-Workspace~a27e56f9-1e4c-47c7-8512-2beba4f71341/collection/20942640-a2a7963d-312f-44d0-88c6-5435c62a00fd?action=share&creator=20942640&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "File Upload APIs",
+			"item": [
+				{
+					"name": "Single File ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "singleFile",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/What's New (4).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/fileupload/uploadImage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fileupload",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple Files",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "multipleFiles",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/fileupload/multipleFiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fileupload",
+								"multipleFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Custom Files",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customFiles",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/fileupload/customFiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fileupload",
+								"customFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "File Upload Progress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/What's New Img 02 (1).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/fileupload/fileUploadProgress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fileupload",
+								"fileUploadProgress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Up load Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/What's New - 3.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/fileupload/uploadImage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fileupload",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User APIs",
+			"item": [
+				{
+					"name": "Get All Users List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/getUsersList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"getUsersList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Rajat\",\r\n    \"lastName\": \"Verma\",\r\n    \"email\": \"RAJAT@amwebtech.com\",\r\n    \"phoneNumber\": \"9797979797\",\r\n    \"password\": \"Rajat@123\",\r\n    \"gender\": \"male\",\r\n    \"dob\": \"12/12/2020\",\r\n    \"role\":\"admin\",\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/saveUserInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"saveUserInfo"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "aaaa",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Verma",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "rajatdsfsdf@amwebtech.com",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "9797979797",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Rajat@123",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User LogOut",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Rajat@amwebtech.com\",\r\n    \"password\": \"Rajat@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/doSignIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"doSignIn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignUp with Query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/doSignupQuery?firstName=Rajat&lastName=Verma&email=rajat@amwebtech.com&phoneNumber=9797979797&password=Rajat@123&gender=male&dob=12/12/2020",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"doSignupQuery"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Rajat"
+								},
+								{
+									"key": "lastName",
+									"value": "Verma"
+								},
+								{
+									"key": "email",
+									"value": "rajat@amwebtech.com"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "9797979797"
+								},
+								{
+									"key": "password",
+									"value": "Rajat@123"
+								},
+								{
+									"key": "gender",
+									"value": "male"
+								},
+								{
+									"key": "dob",
+									"value": "12/12/2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/health-check",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"health-check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Bharat",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Sen",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "BharaT@amwebtech.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "8989898989",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Bharat@123",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "12/12/2020",
+									"type": "text"
+								},
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/What's New Img 02 (1).png"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/profilePicture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"profilePicture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"645b6cf84dd06c865debd7ee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/deleteUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"deleteUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email Already Exists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"bharat@amwebtech.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/emailAlreadyExists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"emailAlreadyExists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignUp With Skills",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Rajat\",\r\n    \"lastName\": \"Verma\",\r\n    \"email\": \"RAJAT@amwebtech.com\",\r\n    \"phoneNumber\": \"9797979797\",\r\n    \"password\": \"Rajat@123\",\r\n    \"gender\": \"male\",\r\n    \"dob\": \"12/12/2020\",\r\n    \"skills\": [\r\n        \"JavaScript\",\r\n        \"typescript\",\r\n        \"HTML\",\r\n        \"CSS\"\r\n    ],\r\n    \"techStack\": [\r\n        \"Angular\",\r\n        \"Nest\",\r\n        \"Node\",\r\n        \"MongoDb\"\r\n    ],\r\n    \"status\": \"1\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/saveUserInfoWithSkills",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"saveUserInfoWithSkills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"RAJAT@amwebtech.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/forgotPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User GraphQL MongoDB",
+			"item": [
+				{
+					"name": "User SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n  createUser(\r\n    createUserGraphqlData: {\r\n      firstName: \"Rajat\"\r\n      lastName: \"Verma\"\r\n      email: \"rajatdddddddd@amerbtech.com\"\r\n      phoneNumber: \"9797979797\"\r\n      password: \"Rajat@123\"\r\n      gender: \"male\"\r\n      dob: \"12/12/2012\"\r\n      role: \"admin\"\r\n      status: \"1\"\r\n    }\r\n  ) {\r\n    _id\r\n    firstName\r\n    lastName\r\n    email\r\n    phoneNumber\r\n    password\r\n    gender\r\n    dob\r\n    role\r\n    status\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    users{\r\n    _id\r\n    firstName\r\n    lastName\r\n    email\r\n    phoneNumber\r\n    password\r\n    gender\r\n    dob\r\n    role\r\n    status\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

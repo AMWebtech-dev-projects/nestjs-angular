@@ -1,0 +1,44 @@
+<div class="container h-100">
+  <h2>Login With Google</h2>
+  <hr>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card h-100 m-auto w-50">
+        <div class="d-flex custom-border">
+          <span class="secondary-bg"></span><span class="primary-bg"></span>
+          <span class="secondary-bg"></span><span class="primary-bg"></span>
+        </div>
+        <div class="p-5">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 text-center ">
+                <div class="text-center" *ngIf="!isLoggedin">
+                  <h3>Login With Facebook</h3>
+                  <button type="button" (click)="loginWithFacbook()" class="btn btn-danger">Login with Facebook</button>
+                </div>
+
+                <div class="text-center" *ngIf="isLoggedin">
+                  <h2>Facebook Login Success</h2>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="isLoggedin">
+              <h3>We've just show the resposnce from the facebook and after that you can save the info in your DB</h3>
+              <pre [innerHTML]="socialUser | json"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="">
+          <li>Need to create gcloud id Here the process =>
+            <ul>
+              <li>login developer facebook website => click on find the Create App Button and click on it => after that filled the required field</li>
+              <li>after completing all the process you can see the App ID, copy the App ID and add your module</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="container h-100 profile-setting">
+  <div class="row">
+    <h3>Profile Setting</h3>
+    <hr class="hrLine m-0">
+  </div>
+  <div class="row my-4">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-start">
+            <label for="fileToUpload" class="rounded-circle">
+              <div class="profile-pic">
+                <img id="ImgPreview" [src]="profileImageView()" height="150px" width="150px" class="rounded-circle" />
+                <span><i class="fas fa-camera me-2 "></i>Upload Image</span>
+              </div>
+              <input type="File" name="fileToUpload" id="fileToUpload" class="form-control" accept="image/*"
+                (change)="onFileChange($event)">
+            </label>
+            <button *ngIf="this.selectedFiles.imageUrl || currentUser.profileImage" (click)="deleteImg()" class="rmv"><i
+                class="fa fa-times"></i>
+            </button>
+          </div>
+          <div class="mt-3 text-center">
+            <h4 class="text-capitalize">{{userStaticDetail.firstName}} {{userStaticDetail.lastName}}</h4>
+            <p class="text-secondary mb-1">{{userStaticDetail.firstName}}</p>
+            <p class="text-muted font-size-sm text-capitalize">Bcc House, First Floor, 8/5/5 Manorama Ganj, INDORE</p>
+            <div>
+            </div>
+          </div>
+
+          <div>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-phone-alt me-2"></i> <a>+ {{userStaticDetail.phoneNumber}}</a> </li>
+              <li><i class="far fa-envelope me-2"></i> <a>{{userStaticDetail.email}}</a> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label fw">
+              First Name
+              <sup [ngClass]="checkvalidation('firstName')"><i class="fas fa-star fa-xs"></i></sup>
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="First name" name="firstName"
+                [(ngModel)]="currentUser.firstName">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label fw">
+              Last Name <sup [ngClass]="checkvalidation('lastName')"><i class="fas fa-star fa-xs"></i></sup>
+            </label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Last name" name="lastName"
+                [(ngModel)]="currentUser.lastName">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label fw">
+              Phone Number <sup [ngClass]="checkvalidation('phoneNumber')"><i class="fas fa-star fa-xs"></i></sup>
+            </label>
+            <div class="col-sm-8">
+              <input type="text" numbersOnly class="form-control" maxlength="10" placeholder="Phone number"
+                name="phoneNumber" [(ngModel)]="currentUser.phoneNumber"
+                (ngModelChange)="patternMatchCheck(currentUser.phoneNumber, 'phoneNumber')">
+              <p class="alert fade show mt-1 mb-0" role="alert"
+                *ngIf="currentUser.phoneNumber && !inValidateCheck.phoneNumber"
+                [ngClass]="{'alert-danger':!inValidateCheck.phoneNumber}">
+                Phone number should be 10 digits.
+              </p>
+            </div>
+
+          </div>
+          <hr class="hrLine">
+        </div>
+        <div class="card-body">
+          <p class="fw-bold text-decoration-underline fst-italic fs-6">Change Password (Optional)</p>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label fw">
+              Password <sup *ngIf="currentUser.password" [ngClass]="checkvalidation('password')"><i
+                  class="fas fa-star fa-xs"></i></sup>
+            </label>
+            <div class="col-sm-8">
+              <input type="password" class="form-control" maxlength="10" placeholder="Password" name="password"
+                [(ngModel)]="currentUser.password"
+                (ngModelChange)="patternMatchCheck(currentUser.password, 'strongPasswordCheck')">
+              <p class="alert fade alert-danger show mt-1" role="alert"
+                *ngIf="currentUser.password && !inValidateCheck.strongPasswordCheck">
+                Use Strong Password min 8 characters,1 lowercase letter,1 uppercase letter,1 number ,1 special
+                character.</p>
+            </div>
+
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-4 col-form-label fw">
+              Confirm Password <sup *ngIf="currentUser.password" [ngClass]="checkvalidation('confirm_password')"><i
+                  class="fas fa-star fa-xs"></i></sup>
+            </label>
+            <div class="col-sm-8">
+              <input type="password" class="form-control" maxlength="10" placeholder="Confirm Password"
+                name="confirmPassword" [(ngModel)]="currentUser.confirm_password">
+              <p class="alert alert-danger show mt-1" role="alert"
+                *ngIf="currentUser.password && currentUser.confirm_password && currentUser.password !== currentUser.confirm_password">
+                Confirm Password must match with password.
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 text-secondary">
+              <button type="button" [routerLink]="['/dashboard']" class="btn btn-secondary px-4 m-2">
+                Cancel
+              </button>
+              <button type="button" class="btn btn-primary px-4 m-2" (click)="uploadProfile()"><i
+                  class="fa fa-pen fa-xs edit me-2"></i>Edit</button>
+            </div>
+          </div>
+          <pre [innerHtml]="currentUser | json"> </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

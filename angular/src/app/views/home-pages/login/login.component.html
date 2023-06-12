@@ -1,0 +1,66 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4 mb-0 login-section position-relative">
+              <div class="d-flex custom-border">
+                <span class="secondary-bg"></span>
+                <span class="primary-bg"></span>
+                <span class="secondary-bg"></span>
+                <span class="primary-bg"></span>
+              </div>
+              <div class="card-body">
+                <h1>Login</h1>
+                <p class="text-muted">Sign In to your account</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">
+                    <i class="icon-user"></i>
+                  </span>
+                  <input type="email" class="form-control" placeholder="Email" required id="email" name="email"
+                    [(ngModel)]="login.email" autocomplete="off">
+                </div>
+                <div class="input-group mb-2">
+                  <span class="input-group-text">
+                    <i class="icon-lock"></i>
+                  </span>
+                  <input type="password" class="form-control" placeholder="Password" required id="password"
+                    name="password" [(ngModel)]="login.password">
+                </div>
+                <div class="form-group mb-4">
+                  <a href=" #" class="float-left text-primary clr-primary">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="login.remember" id="remember"
+                      name="remember" value="1">
+                    <label class="form-check-label" for="remember">&nbsp; Remember Me</label>
+                  </a>
+                </div>
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <button type="button" class="btn btn-primary px-4" (click)="doLogin()"
+                      [disabled]="!login.email || !login.password">
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card text-white bg-secondary py-5 login-section">
+              <div class="card-body text-center">
+                <div>
+                  <h2>Sign up</h2>
+                  <button type="button" class="btn btn-primary mt-3" [routerLink]="['/signup']">Register
+                    Now!</button>
+                  <br>
+                  <button type="button" class="btn btn-primary mt-3" [routerLink]="['/forgot-password']">Forgot
+                    password?</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre [innerHtml]="login | json"> </pre>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,275 @@
+<div id="container" class="body-wrap home-page ui-app">
+  <header class="main-header" [ngClass]="{'fixedHeader':fixedHeader}">
+    <div class="middle-header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light pl-0 pr-0">
+          <a class="navbar-brand">
+            <img src="../../../assets/img/brand/AMW_Logo_White.svg">
+          </a>
+          <button aria-controls="main-nav" (click)="toggleNavbar()" class="navbar-toggler collapsed" type="button"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="main-nav" [ngClass]='{show: showNav}'>
+            <button aria-controls="main-nav" (click)="toggleNavbar()" class="navbar-toggler collapsed" type="button"
+              aria-label="Toggle navigation">
+              <i class="fa fa-times"></i>
+            </button>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/home']">home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="btn-group nav-item slide-down" dropdown>
+                <a id="basic-link" dropdownToggle class="nav-link dropdown-toggle">
+                  Services <span class="caret"></span>
+                </a>
+                <ul *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="basic-link">
+                  <ng-container>
+                    <li><a class="nav-link" target="_blank">GIS MAP API </a></li>
+                    <li><a class="nav-link" target="_blank">Web Designing</a></li>
+                    <li><a class="nav-link" target="_blank">Web Development</a></li>
+                    <li><a class="nav-link" target="_blank">QA</a></li>
+                    <li><a class="nav-link" target="_blank">Mobile App</a></li>
+                    <li><a class="nav-link" target="_blank">Digital Marketing</a></li>
+                  </ng-container>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/about-us']">about us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contact-us']">contact us</a>
+              </li>
+            </ul>
+
+            <a *ngIf="!currentUser?._id" href="#" [routerLink]="['/login']"
+              class="btn my-2 my-sm-0 btn-primary py-2 px-1" type="submit">Sign in/Sign up</a>
+
+            <div class="social-icons d-flex ml-15 sm-mr-0">
+              <ul class="list-unstyled d-flex m-0">
+                <li>
+                  <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="change-order-mobile search-div" [ngClass]="addClassActiveUser === true ? 'UserActive' : ''">
+            <button class="search-btn" (click)="quickSearchOverlayWrap.show()" id="search-btn" type="button">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div *ngIf="currentUser?._id" class="btn-group nav-item slide-down loginUser" dropdown>
+            <button dropdownToggle class="btn-transparent">
+              <img src="assets/img/brand/avatar.png" class="img-avatar mr-5p" width="25px"
+                alt="{{currentUser.firstName}}" />
+              <span class="text-capitalize align-middle">{{currentUser.firstName}}</span> <span class="caret"></span>
+            </button>
+            <ul *dropdownMenu class="dropdown-menu" role="menu">
+              <li class="nav-item" *ngIf="currentUser?.role && currentUser?.role === 'admin'">
+                <a [routerLink]="['/dashboard']" class="nav-link" type="submit">Admin Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item p-2 pl-3" [routerLink]="['/user-profile']"><i class="fa fa-user p-1"></i>
+                  Profile Setting</a>
+                <hr class="m-0">
+              </li>
+              <li class="nav-item">
+                <a class="dropdown-item p-2 pl-3" [routerLink]="['/login']" (click)="logout()" type="submit">
+                  <i class="fa fa-lock p-1"></i>
+                  Sign Out
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="wrapper">
+    <app-loading></app-loading>
+    <div class="container-fluid py-5">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <!-- footer section -->
+  <footer class="footer-color">
+    <div class="footer">
+      <div class="container">
+        <div class="row fcolor ">
+          <div class="col-lg-5  col-sm-6">
+            <div class="footer-section_inner mb-30 h-100">
+              <h2>Contact us</h2>
+              <p class="highlighted">Phone: <a href="tel:0800-1457-256" class="clr-white">0800-1457-256</a></p>
+              <p class="highlighted">Monday-Friday from <span class="high">9:00 am to 8:00 pm<br></span>
+                Saturday from<span class="high"> 10:00 am to 6:00 pm</span>
+              </p>
+              <p class="m-0"> <a href="mailto:someone@example.com"><span class="high">info@am.online</span></a></p>
+              <p> <a href="mailto:someone@example.com"><span class="high">support@am.online</span></a></p>
+            </div>
+          </div>
+          <div class="col-lg-3  col-sm-6">
+            <div class="footer-section_inner mb-30 h-100">
+              <h2>Useful links</h2>
+              <ul>
+                <li><a [routerLink]="['#']">About</a> </li>
+                <li><a [routerLink]="['#']">Our story</a> </li>
+                <li><a [routerLink]="['#']">Professional team</a> </li>
+                <li><a [routerLink]="['#']">Services</a> </li>
+                <li><a [routerLink]="['#']">Testimonials</a> </li>
+                <li><a [routerLink]="['#']">Press</a> </li>
+                <li><a [routerLink]="['#']">Contacts</a> </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4  col-sm-6">
+            <div class="newsletter-section footer-section_inner mb-30 h-100">
+              <h2> Newsletter</h2>
+              <p>Quisque aliquam is condimentum vulputate nulla
+                fascilisi. sed tempor dolor egestas placerat.</p>
+              <div class="form-group_1">
+                <input type="text" class="form-control email" placeholder="Enter Your E-mail Address">
+                <button class="btn-send d-flex justify-content-center align-items-center">
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-copy black-bg">
+      <div class="container">
+        <div class="row justify-content-between align-items-center m-0">
+          <div class="copyright pt-10 pb-10">
+            <p class="m-0">&copy;2021 All Rights Reserved</p>
+          </div>
+
+          <div class="social-icons foot pt-10 pb-10">
+            <ul class="list-unstyled d-flex m-0">
+              <li>
+                <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li>
+                <a href="" target="_blank" class="d-flex justify-content-center align-items-center flex-column">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="backtotop" [ngClass]="{'show-scrollTop': showScroll}">
+    <button (click)="scrollToTop()">
+      <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- Search -->
+  <div id="quickSearchOverlayWrap" bsModal #quickSearchOverlayWrap="bs-modal" class="modal fade" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: 'static',  keyboard: false}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="quickSearchOverlayFormWrap">
+            <div class="quickSearchFormWrap">
+              <a (click)="quickSearchOverlayWrap.hide()" class="quickSearchOverlayCloseBtn">
+                <i class="fa fa-times"></i>
+              </a>
+              <form role="form">
+                <div class="form-group mb-0">
+                  <!-- <pre [innerHtml]="quickSearchList | json"></pre> -->
+                  <input id="quickSearchText" type="text" name="email" class="form-control ng-valid ng-dirty"
+                    aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-00E-5349"
+                    placeholder="Please enter user first name OR last name" [(ngModel)]="quickSearch.searchText"
+                    (ngModelChange)="getSearchdata(quickSearch.searchText)">
+                  <ul role="listbox" aria-hidden="false" active="activeIdx" position="position" class="dropdown-menu"
+                    style="display: block; left: 0px;">
+
+                    <li class="active pt-3 ng-star-inserted" *ngFor="let searchItem of quickSearchList; let i=index">
+                      <a class="ng-star-inserted p-3">
+                        <div class="row search-results-item list-view m-0" *ngIf="!searchItem.error">
+                          <div class="col-sm-2 hidden-xs">
+                            <div class="media-list-image-wrap propertyList-slide-wrap" style="overflow: hidden;">
+                              <div class="ng-star-inserted">
+                                <img width="300" height="300" class="lazyOwl img-fluid"
+                                  src="assets/img/brand/avatar.png">
+                              </div>
+                              <!---->
+                            </div>
+                          </div>
+                          <div class="col-xs-8 col-sm-6" style="white-space: normal;">
+                            <h4 class="mb-10 text-capitalize"><strong>{{searchItem.firstName}}
+                                {{searchItem.lastName}}</strong></h4>
+                          </div>
+                          <div class="col-xs-4 col-sm-4">
+                            <h5 class="text-right text-capitalize"><strong>{{searchItem.role}}</strong></h5>
+                          </div>
+                        </div>
+                        <div class="row search-results-item list-view m-0" *ngIf="searchItem.error">
+                          <div class="col-xs-12 col-sm-12" style="white-space: normal;">
+                            <h4 class="mb-10 text-capitalize text-center"><strong>{{searchItem.error}}</strong></h4>
+                          </div>
+                        </div>
+                      </a>
+                      <!---->
+                      <!---->
+                    </li>
+                    <!---->
+                  </ul>
+                  <span class="aroLoader form-control-feedback" *ngIf="loadingListings"></span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /body-wrap -->

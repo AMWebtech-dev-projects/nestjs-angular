@@ -1,0 +1,90 @@
+<!--=================================
+      contact-->
+<section class="theme-bg contact-2 clearfix o-hidden pos-r">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class=""> -->
+      <agm-map id="map" class="col-lg-6 col-md-6 map-side g-map map-right" [latitude]="lat" [longitude]="lng"
+        [zoom]="zoom" [disableDefaultUI]="false">
+        <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker()" [latitude]="m.lat"
+          [longitude]="m.lng" [label]="m.label"></agm-marker>
+      </agm-map>
+      <!-- </div> -->
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5">
+
+        <div class="contact-3-info page-section-ptb text-white">
+          <div class="clearfix">
+            <h6 class="text-white">Our Offices</h6>
+            <h2 class="text-white">Contact Info</h2>
+            <p class="mb-50 text-white">It would be great to hear from you! If you got any questions, please do not
+              hesitate to send us a message. We are looking forward to hearing from you! We reply within <span
+                class="tooltip-content-2" data-original-title="Mon-Fri 10am–7pm (GMT +1)" data-toggle="tooltip"
+                data-placement="top"> 24 hours !</span></p>
+            <ul class="addresss-info list-unstyled">
+              <li><i class="fa fa-map-marker"></i>
+                <p>Address: BCC House, First Floor, 8/5/5 Manorama Ganj, <br> Indore(MP) 452001</p>
+              </li>
+              <li><i class="fa fa-mobile"></i>Phone: (+91) 844 844 9003</li>
+              <li><i class="fa fa-envelope"></i>Email: hello@amwebtech.com</li>
+            </ul>
+            <div class="social_icons rounded color-hover mt-50">
+              <ul>
+                <li class="social-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="social-twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="social-instagram"><a href="#"><i class="fab fa-instagram"></i> </a></li>
+                <li class="social-linkedin"><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section-ptb contact-2">
+  <div class="container">
+    <div class="row text-center mb-50">
+      <div class="offset-md-2 col-lg-8">
+        <div class="section-title">
+          <h6>let&apos;s work together</h6>
+          <h2 class="title-effect">Contact Us</h2>
+          <p>It would be great to hear from you! If you got any questions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form class="" id="contactform" role="form" method="post" action="#">
+          <div class="contact-form row">
+            <div class="section-field col-md-4 form-group">
+              <input type="text" id="fname" class="form-control required" placeholder="Name*" name="first_name"
+                required>
+            </div>
+            <div class="section-field col-md-4 form-group ">
+              <input type="email" id="email" name="email" class="form-control required" placeholder="Email*" required>
+            </div>
+            <div class="section-field col-md-4 form-group">
+              <input type="text" placeholder="Phone*" class="form-control required" name="phone" required>
+            </div>
+            <div class="section-field col-md-12 form-group textarea">
+              <textarea class="form-control required input-message required" placeholder="Comment*" rows="7"
+                name="message" required></textarea>
+            </div>
+            <div class="section-field submit-button col-md-12">
+              <button id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">Send your
+                message</button>
+            </div>
+          </div>
+        </form>
+        <div id="ajaxloader" style="display:none">
+          <img class="mx-auto mt-30 mb-30" src="images/pre-loader/loader-02.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

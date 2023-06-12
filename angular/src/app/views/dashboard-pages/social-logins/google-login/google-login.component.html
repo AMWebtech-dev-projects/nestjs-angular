@@ -1,0 +1,44 @@
+<div class="container h-100">
+  <h2>Login With Google</h2>
+  <hr>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card h-100 m-auto w-50">
+        <div class="d-flex custom-border">
+          <span class="secondary-bg"></span><span class="primary-bg"></span>
+          <span class="secondary-bg"></span><span class="primary-bg"></span>
+        </div>
+        <div class="p-5">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 text-center ">
+                <div class="text-center" *ngIf="!isLoggedin">
+                  <h3>Login With Google</h3>
+                  <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
+                </div>
+
+                <div class="text-center" *ngIf="isLoggedin">
+                  <h2>Google Login Success</h2>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="isLoggedin">
+              <h3>We've just show the resposnce from the google and after that you can save the info in your DB</h3>
+              <pre [innerHTML]="socialUser | json"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="">
+          <li>Need to create gcloud id Here the process =>
+            <ul>
+              <li>login Google console => click on api and services menu in the left sidebar => after that click on creadentials</li>
+              <li>where you can see the option and create the creadentials after that you can see the tokens</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

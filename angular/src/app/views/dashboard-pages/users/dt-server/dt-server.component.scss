@@ -1,0 +1,32 @@
+// ::ng-deep .odd{ display: none }
+
+.editForm {
+  .app-body {
+    .main {
+      margin: 0;
+      padding: 0;
+
+      .container {
+        padding: 0;
+
+        [class*="col-lg"] {
+          width: 100%;
+
+          .card {
+            border: none;
+
+            .card-body {
+              padding: 0 !important;
+
+              & h1,
+              & h1+p,
+              & .custom-border {
+                display: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
