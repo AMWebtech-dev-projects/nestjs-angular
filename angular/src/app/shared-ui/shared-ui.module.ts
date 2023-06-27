@@ -66,10 +66,5 @@ const SHARED_MODULES: any = [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedUiModule {
-  static forRoot(): ModuleWithProviders<SharedUiModule> {
-    return {
-      ngModule: SharedUiModule,
-      providers: [],
-    };
-  }
+  s
 }
